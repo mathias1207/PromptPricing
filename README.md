@@ -1,140 +1,88 @@
-# 🚀 Tokencraft
+# Tokencraft
 
-**Tokencraft** est un calculateur de coût de tokens moderne et intuitif pour les modèles de langage (LLM). Comparez instantanément les prix entre 100+ modèles de différents fournisseurs.
+A web-based calculator for estimating token costs across different Large Language Model providers. Built as a learning project to explore Next.js 15 and modern web development practices.
 
-![Tokencraft Preview](https://img.shields.io/badge/Status-Beta-yellow) ![Next.js](https://img.shields.io/badge/Next.js-15-black) ![License](https://img.shields.io/badge/License-MIT-blue)
+## Overview
 
-🌐 **Demo Live** : [À venir]
+This application helps developers and researchers estimate costs when working with various LLM APIs. It provides real-time token counting and price comparisons across 100+ models from 9 different providers.
 
-## ✨ Fonctionnalités
+### Features
 
-- 🔢 **Calcul précis des tokens** - Utilise le tokenizer GPT officiel
-- 💰 **Comparaison multi-modèles** - 100+ modèles de 9 fournisseurs
-- 📊 **Estimation intelligente** - Mode AUTO pour estimer les tokens de sortie
-- 🔍 **Recherche & Filtres** - Trouvez rapidement le modèle idéal
-- 🎨 **Design moderne** - Interface Neo-Brutalism/Pop inspirée
-- ⚡ **Temps réel** - Résultats instantanés avec animations fluides
-- 📱 **Responsive** - Fonctionne sur desktop et mobile
+- Real-time token counting using GPT tokenizer
+- Price comparison across multiple LLM providers
+- Automatic output token estimation
+- Search and filter functionality for models
+- Responsive design that works on mobile and desktop
 
-## 🎯 Pourquoi Tokencraft ?
+## Data Source
 
-Contrairement aux calculateurs classiques, Tokencraft vous permet de :
-- ✅ **Voir TOUS les modèles disponibles** (pas seulement 5-10)
-- ✅ **Comparer les coûts input ET output** séparément
-- ✅ **Estimer automatiquement** la taille de la réponse
-- ✅ **Avoir des prix toujours à jour** (source officielle llm-prices.com)
+All pricing data is sourced from [llm-prices](https://github.com/simonw/llm-prices) by Simon Willison. This project aggregates official pricing information from LLM providers and maintains it in structured JSON files.
 
-## 📊 Sources de Données
+- Source repository: https://github.com/simonw/llm-prices
+- Website: https://www.llm-prices.com/
+- Last updated: 2025-11-30
 
-Les prix proviennent du projet officiel **[llm-prices](https://github.com/simonw/llm-prices)** maintenu par Simon Willison et la communauté. Ce projet agrège les tarifs officiels de tous les fournisseurs LLM.
+### Supported Providers
 
-- 🔗 **Repo GitHub** : [simonw/llm-prices](https://github.com/simonw/llm-prices/tree/main)
-- 🌐 **Site web** : [llm-prices.com](https://www.llm-prices.com/)
-- 📅 **Dernière mise à jour** : 2025-11-30
+The application currently supports models from:
 
-### Fournisseurs supportés
+- OpenAI (GPT-4o, GPT-4.5, GPT-4o Mini, o1, o3-mini)
+- Anthropic (Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku)
+- Google (Gemini 2.5 Pro, Gemini 2.0 Flash)
+- Mistral (Mistral Large, Mistral Medium 3, Mistral Small 3.1)
+- xAI (Grok 4, Grok 3)
+- DeepSeek (DeepSeek V3)
+- Amazon (Nova Pro, Nova Lite, Nova Micro)
+- Moonshot
+- Minimax
 
-| Provider | Modèles | Exemples |
-|----------|---------|----------|
-| **OpenAI** | 20+ | GPT-4o, GPT-4.5, GPT-4o Mini, o1, o3-mini |
-| **Anthropic** | 8+ | Claude 3.7 Sonnet, Claude 3.5 Sonnet, Claude 3 Haiku |
-| **Google** | 30+ | Gemini 2.5 Pro, Gemini 2.0 Flash, Gemini 1.5 Pro |
-| **Mistral** | 15+ | Mistral Large, Mistral Medium 3, Mistral Small 3.1 |
-| **xAI** | 10+ | Grok 4, Grok 3, Grok 4 Fast |
-| **DeepSeek** | 4+ | DeepSeek V3, DeepSeek Chat |
-| **Amazon** | 5+ | Nova Pro, Nova Lite, Nova Micro |
-| **Moonshot** | 8+ | Moonshot v1 |
-| **Minimax** | 2+ | Minimax Pro |
+## Technical Stack
 
-## 🛠️ Stack Technique
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **Tokenizer**: gpt-tokenizer library
+- **Animation**: Framer Motion
 
-- **Framework** : Next.js 15 (App Router)
-- **Langage** : TypeScript
-- **Styling** : TailwindCSS + CSS Custom
-- **Tokenizer** : gpt-tokenizer
-- **Animations** : Framer Motion
-- **Deployment** : Vercel / Netlify compatible
+## Installation
 
-## 📦 Installation
+Clone the repository and install dependencies:
 
 ```bash
-# Cloner le repo
 git clone https://github.com/mathias1207/PromptPricing.git
 cd PromptPricing
-
-# Installer les dépendances
 npm install
-
-# Lancer en dev
-npm run dev
-
-# Build pour production
-npm run build
-npm start
 ```
 
-L'application sera accessible sur **http://localhost:3000**
-
-## 🎨 Design
-
-Tokencraft utilise un design **Neo-Brutalism** moderne avec :
-- 🎨 Palette de couleurs vives (violet, jaune, rose)
-- 🖊️ Bordures épaisses (2px)
-- 📦 Ombres dures (cartoon shadows)
-- 🔤 Typographie bold (Inter Tight + JetBrains Mono)
-- ✨ Micro-interactions subtiles
-
-## 🔄 Mise à Jour des Prix
-
-### Automatique (Recommandé)
-
-Les prix sont stockés dans `/data/*.json` et proviennent directement de [llm-prices](https://github.com/simonw/llm-prices).
-
-Pour mettre à jour :
+Run the development server:
 
 ```bash
-# 1. Cloner le repo llm-prices
-git clone https://github.com/simonw/llm-prices.git temp-llm-prices
-
-# 2. Copier les fichiers JSON
-cp temp-llm-prices/data/*.json ./data/
-
-# 3. Nettoyer
-rm -rf temp-llm-prices
-
-# 4. Rebuild (les changements seront automatiques en dev avec hot-reload)
-npm run build
+npm run dev
 ```
 
-### Vérifier les mises à jour
+Open http://localhost:3000 in your browser.
 
-Consultez [llm-prices.com](https://www.llm-prices.com/) - en bas de page :
-```
-Prices last updated: 2025-11-30
-```
-
-Si la date est plus récente que celle dans votre `/data`, mettez à jour !
-
-## 📂 Structure du Projet
+## Project Structure
 
 ```
 /src
   /app
-    /api/calc/route.ts       # API endpoint pour calcul des tokens
-    /components              # Composants React
-      AnimatedBackground.tsx # (supprimé, design cartoon)
-      PromptInput.tsx        # Zone de saisie + estimateur
-      ModelSelector.tsx      # Sélecteur avec recherche/filtres
-      TokenResultCard.tsx    # Affichage des résultats
-    page.tsx                 # Page principale
-    layout.tsx              # Layout global
+    /api/calc
+      route.ts              # API endpoint for token calculation
+    /components
+      PromptInput.tsx       # Input component with estimator
+      ModelSelector.tsx     # Model selection with search/filters
+      TokenResultCard.tsx   # Results display component
+    page.tsx                # Main page
+    layout.tsx              # Root layout
   /lib
-    loadPricing.ts          # Chargement des prix depuis JSON
-    tokenizer.ts            # Comptage de tokens
-    constants.ts            # Constantes (date MAJ, etc.)
+    loadPricing.ts          # Loads pricing data from JSON files
+    tokenizer.ts            # Token counting logic
+    constants.ts            # Application constants
   /styles
-    globals.css             # Styles globaux + fonts
-/data                        # Fichiers JSON de prix (source: llm-prices)
+    globals.css             # Global styles and fonts
+
+/data                       # Pricing data (from llm-prices)
   anthropic.json
   openai.json
   google.json
@@ -146,64 +94,110 @@ Si la date est plus récente que celle dans votre `/data`, mettez à jour !
   minimax.json
 ```
 
-## 🚀 Déploiement
+## How It Works
 
-### Vercel (Recommandé)
+### Token Counting
 
-```bash
-# Installer Vercel CLI
-npm i -g vercel
+The application uses the `gpt-tokenizer` library to count tokens in the input text. This provides accurate token counts compatible with OpenAI's tokenization.
 
-# Déployer
-vercel
+### Output Estimation
+
+Since users typically don't know how many output tokens they'll receive, the app includes an intelligent estimator with two modes:
+
+1. **AUTO mode**: Automatically estimates output tokens based on input length
+2. **Manual mode**: User can set expected output tokens using preset buttons or a slider
+
+### Price Calculation
+
+Prices are loaded from JSON files in the `/data` directory. The calculation considers both input and output tokens:
+
+```
+Total Cost = (Input Tokens / 1M × Input Price) + (Output Tokens / 1M × Output Price)
 ```
 
-### Netlify
+## Updating Prices
+
+The pricing data comes from the llm-prices repository. To update:
 
 ```bash
-# Build
+# Clone the llm-prices repository
+git clone https://github.com/simonw/llm-prices.git temp-llm-prices
+
+# Copy JSON files
+cp temp-llm-prices/data/*.json ./data/
+
+# Clean up
+rm -rf temp-llm-prices
+
+# Rebuild if needed
 npm run build
-
-# Le dossier .next sera déployé automatiquement
 ```
 
-## 🤝 Contribution
+The app will automatically load the new prices on next start. In development mode with hot-reload, changes are reflected immediately.
 
-Les contributions sont les bienvenues !
+## Development Notes
 
-1. Fork le projet
-2. Créez une branche (`git checkout -b feature/AmazingFeature`)
-3. Committez vos changements (`git commit -m 'Add AmazingFeature'`)
-4. Pushez (`git push origin feature/AmazingFeature`)
-5. Ouvrez une Pull Request
+### Handling Duplicate IDs
 
-## 📝 Roadmap
+The data loading system detects and handles duplicate model IDs by appending a numeric suffix. This prevents React key conflicts when rendering the model list.
 
-- [ ] **API publique** - Endpoint pour intégrations tierces
-- [ ] **Mode comparaison** - Comparer 2-3 modèles côte à côte
-- [ ] **Historique** - Voir l'évolution des prix dans le temps
-- [ ] **Notifications** - Alertes sur changements de prix
-- [ ] **Dark mode** - Thème sombre (actuellement clair uniquement)
-- [ ] **Export PDF** - Exporter les estimations
-- [ ] **Calculateur batch** - Pour calculer plusieurs prompts
-- [ ] **Support GPT-4o-realtime** - Modèles audio/vision
+### Hydration Issues
 
-## 📄 Licence
+Number formatting (toLocaleString) can cause hydration mismatches between server and client. These are handled using `suppressHydrationWarning` on affected elements.
 
-MIT License - voir [LICENSE](LICENSE) pour plus de détails.
+### Performance
 
-## 🙏 Crédits
+- Model data is loaded once at build time
+- No external API calls required for pricing lookups
+- Client-side tokenization keeps the API simple
 
-- **Données de prix** : [llm-prices](https://github.com/simonw/llm-prices) par Simon Willison
-- **Tokenizer** : [gpt-tokenizer](https://github.com/niieani/gpt-tokenizer)
-- **Design inspiration** : Neo-Brutalism / Modern Cartoon aesthetic
+## Building for Production
 
-## 📧 Contact
+```bash
+npm run build
+npm start
+```
 
-Mathias Goldmann - [@mathias1207](https://github.com/mathias1207)
+The application can be deployed to any platform that supports Next.js:
 
-**Repo** : [https://github.com/mathias1207/PromptPricing](https://github.com/mathias1207/PromptPricing)
+- Vercel (recommended)
+- Netlify
+- Any Node.js hosting platform
 
----
+## Known Issues
 
-⭐ **Star ce repo** si Tokencraft vous aide à optimiser vos coûts LLM !
+- Tokenization is based on GPT tokenizer, which may not be accurate for all models
+- Some models (like Claude) use different tokenizers
+- Price data depends on manual updates from the llm-prices project
+
+## Future Improvements
+
+- Add historical price tracking and visualization
+- Implement side-by-side model comparison
+- Add batch calculation for multiple prompts
+- Create public API for programmatic access
+- Support for more specialized models (audio, vision, real-time)
+
+## Contributing
+
+This is an open-source project. Feel free to fork and submit pull requests.
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details
+
+## Credits
+
+- Pricing data: [llm-prices](https://github.com/simonw/llm-prices) by Simon Willison
+- Tokenizer: [gpt-tokenizer](https://github.com/niieani/gpt-tokenizer)
+
+## Contact
+
+Mathias Goldmann  
+GitHub: [@mathias1207](https://github.com/mathias1207)  
+Repository: https://github.com/mathias1207/PromptPricing

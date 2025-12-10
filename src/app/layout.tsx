@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Tokencraft - AI Token Cost Calculator",
+  title: "PromptPricing - AI prompt pricing calculator",
   description: "Calculate token counts and costs for various LLM models with a futuristic interface",
 };
 

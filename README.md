@@ -1,4 +1,4 @@
-# Tokencraft
+# cost-prompt.com
 
 A web-based calculator for estimating token costs across different Large Language Model providers. Built as a learning project to explore Next.js 15 and modern web development practices.
 

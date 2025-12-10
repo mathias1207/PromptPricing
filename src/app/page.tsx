@@ -55,7 +55,7 @@ export default function Home() {
             </svg>
           </div>
           <h1 className="text-2xl font-black tracking-tight text-pop-dark">
-            PROMPT PRICING
+            PROMPT PRICING CALCULATOR
           </h1>
         </div>
         
